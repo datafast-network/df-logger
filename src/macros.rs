@@ -7,7 +7,7 @@ macro_rules! generate_log_message {
             "debug" => format!("\x1b[34m{}\x1b[0m", $msg),
             _ => format!("{}", $msg),
         };
-        df-logger::log::$log_level!(target: &format!("{}",stringify!($target)), "{}", msg);
+        df_logger::log::$log_level!(target: &format!("{}",stringify!($target)), "{}", msg);
     };
     ($log_level:ident, $target:ident, $msg:expr; $($key:ident => $value:expr),*) => {
         use df-logger::log;
@@ -24,7 +24,7 @@ macro_rules! generate_log_message {
             )*
         ].join(", ");
         let result_message = format!("{}\n {}", msg, keys_message);
-         df-logger::log::$log_level!(target: &format!("{}",stringify!($target)), "{}", result_message);
+        df_logger::log::$log_level!(target: &format!("{}",stringify!($target)), "{}", result_message);
     };
 }
 
