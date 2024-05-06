@@ -10,7 +10,6 @@ macro_rules! generate_log_message {
         df_logger::log::$log_level!(target: &format!("{}",stringify!($target)), "{}", msg);
     };
     ($log_level:ident, $target:ident, $msg:expr; $($key:ident => $value:expr),*) => {
-        use df-logger::log;
         let msg = match stringify!($log_level) {
             "warn" => format!("⚠️  \x1b[33m{}\x1b[0m", $msg),
             "error" => format!("\x1b[31m{}\x1b[0m", $msg),
