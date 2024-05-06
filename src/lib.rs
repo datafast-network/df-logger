@@ -1,7 +1,7 @@
 mod macros;
 
 pub use macros::*;
-
+pub use log;
 pub mod loggers {
     pub fn init_logger() {
         env_logger::try_init().unwrap_or_default();
